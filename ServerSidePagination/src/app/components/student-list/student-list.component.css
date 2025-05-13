@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  /* background-color: white; */
+}
+
+.mat-elevation-z8 {
+  background-color: white; 
+}
+
+
+.mat-cell,
+.mat-header-cell {
+  color: black; 
+}
