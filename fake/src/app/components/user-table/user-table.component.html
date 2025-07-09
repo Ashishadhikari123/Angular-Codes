@@ -1,0 +1,73 @@
+<div class="container">
+  
+    <mat-form-field appearance="outline" style="width: 100%; margin-bottom: 20px;">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search by name, company, location..." #input>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    
+        <!-- Dynamic Column Template -->
+        @for (column of displayedColumns; track column) {
+          <ng-container [matColumnDef]="column">
+            @if (isSortableColumn(column)) {
+              <th mat-header-cell *matHeaderCellDef
+                  mat-sort-header
+                  (contextmenu)="onColumnHeaderRightClick($event, column)"
+                  [class.sticky-col]="column === 'employee_id'"
+                  
+                  [class.sticky-col-right]="column === 'employeeCode'"
+                  [class.auto-generated]="column === 'employee_id' || column === 'employeeCode'">
+                {{getColumnLabel(column)}}
+              </th>
+            } @else {
+              <th mat-header-cell *matHeaderCellDef
+                  (contextmenu)="onColumnHeaderRightClick($event, column)"
+                  [class.sticky-col]="column === 'employee_id'"
+                  [class.employee-id]="column === 'employee_id'"
+                  [class.sticky-col-right]="column === 'employeeCode'"
+                  [class.auto-generated]="column === 'employee_id'">
+                {{getColumnLabel(column)}}
+              </th>
+            }
+            <td mat-cell *matCellDef="let element; let i = index"
+                (click)="onCellClick(i, column, element[column])"
+                [class.editing]="isEditing(i, column)"
+                [class.sticky-col]="column === 'employee_id'"
+                [class.employee-id]="column === 'employee_id'"
+                [class.sticky-col-right]="column === 'employeeCode'"
+                [class.auto-generated]="column === 'employee_id'">
+              @if (!isEditing(i, column)) {
+                {{element[column] || ''}}
+              } @else {
+                @if (column === 'company') {
+                  <mat-select [(ngModel)]="editingValue" 
+                             (selectionChange)="onCompanySelect(i, editingValue)"
+                             class="cell-input"
+                             autofocus>
+                    <mat-option value="">-- Select Company --</mat-option>
+                    @for (company of companyOptions; track company) {
+                      <mat-option [value]="company">{{company}}</mat-option>
+                    }
+                  </mat-select>
+                } @else {
+                  <input matInput 
+                         [type]="getColumnType(column)"
+                         [(ngModel)]="editingValue" 
+                         (blur)="onCellBlur()" 
+                         (keydown)="onCellKeyDown($event)"
+                         class="cell-input"
+                         autofocus>
+                }
+              }
+            </td>
+          </ng-container>
+        }
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index" (contextmenu)="onRowRightClick($event, i)"></tr>
+      </table>
+    </div>
+  </div> 

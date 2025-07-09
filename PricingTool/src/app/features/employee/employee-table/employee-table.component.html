@@ -1,0 +1,88 @@
+<div class="action-bar">
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search employees...">
+  </mat-form-field>
+  
+  <div class="button-group">
+    <button mat-raised-button color="primary" (click)="openAddDialog()">
+      <mat-icon>person_add</mat-icon>
+      Add Employee
+    </button>
+    
+    <button mat-stroked-button (click)="insertRowsAtTop()">
+      <mat-icon>add_circle_outline</mat-icon>
+      Insert Rows at Top
+    </button>
+    
+    <button mat-stroked-button (click)="insertRowsAtBottom()">
+      <mat-icon>add_circle_outline</mat-icon>
+      Insert Rows at Bottom
+    </button>
+    
+    <button mat-stroked-button (click)="insertMultipleRows()">
+      <mat-icon>playlist_add</mat-icon>
+      Insert Multiple Rows
+    </button>
+    
+    <button mat-raised-button color="warn" (click)="addColumn()">
+      <mat-icon>view_column</mat-icon>
+      Add Column
+    </button>
+    
+    <button mat-stroked-button color="accent" (click)="refreshEmployees()">
+      <mat-icon>refresh</mat-icon>
+      Refresh Data
+    </button>
+    
+    <button mat-stroked-button color="warn" (click)="testInsertion()">
+      <mat-icon>bug_report</mat-icon>
+      Test Insertion
+    </button>
+    
+    <button mat-stroked-button color="accent" (click)="debugCurrentData()">
+      <mat-icon>info</mat-icon>
+      Debug Data
+    </button>
+    
+    <button mat-stroked-button color="primary" (click)="testInsertAfterAlice()">
+      <mat-icon>add</mat-icon>
+      Test After Alice
+    </button>
+    
+    <button mat-stroked-button color="primary" (click)="testInsertBeforeBob()">
+      <mat-icon>add</mat-icon>
+      Test Before Bob
+    </button>
+  </div>
+</div>
+
+<div class="table-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows>
+    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+      <th mat-header-cell *matHeaderCellDef>{{ column | titlecase }}</th>
+      <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row 
+        *matRowDef="let row; columns: displayedColumns; let i = index;" 
+        (contextmenu)="onRowRightClick($event, getAbsoluteIndex(i), row)"
+        [class.table-row]="true"
+        [class.empty-row]="!row.name">
+    </tr>
+  </table>
+
+  <!-- Context Menu -->
+  <app-row-context-menu
+    [visible]="contextMenuVisible"
+    [x]="contextMenuX"
+    [y]="contextMenuY"
+    [rowIndex]="contextMenuRowIndex"
+    [rowData]="contextMenuRowData"
+    (contextMenuAction)="onContextMenuAction($event)"
+    (contextMenuClose)="onContextMenuClose()">
+  </app-row-context-menu>
+</div>
+
+<mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> 

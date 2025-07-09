@@ -1,0 +1,158 @@
+/* Action bar for search and buttons */
+.action-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  background: #f8f9fa;
+  padding: 18px 20px 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(60,60,60,0.07);
+}
+
+.action-bar mat-form-field {
+  flex: 1 1 260px;
+  min-width: 220px;
+  max-width: 340px;
+  margin-right: auto;
+}
+
+.action-bar button {
+  min-width: 135px;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.08);
+  letter-spacing: 0.5px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.action-bar button:hover, .action-bar button:focus {
+  filter: brightness(0.96);
+  box-shadow: 0 4px 16px rgba(60,60,60,0.13);
+}
+
+/* Button group styles */
+.button-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.button-group button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.button-group button mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Table styles */
+.table-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(60,60,60,0.07);
+}
+
+.mat-header-cell, .mat-cell {
+  padding: 16px 14px;
+  font-size: 15.5px;
+}
+
+.mat-header-row {
+  background: #e3e7f1;
+  font-weight: 700;
+  color: #2d3a4a;
+}
+
+.mat-row:nth-child(even) {
+  background: #f6f8fa;
+}
+
+.mat-row:hover {
+  background: #e8f0fe;
+  transition: background 0.2s;
+}
+
+/* Table row interactions */
+.table-row {
+  cursor: context-menu;
+  position: relative;
+}
+
+.table-row:hover {
+  background: #e8f0fe !important;
+}
+
+.table-row.empty-row {
+  background: #fffbf0 !important;
+  border-left: 3px solid #ff9800;
+}
+
+.table-row.empty-row:hover {
+  background: #fff3e0 !important;
+}
+
+.table-row.empty-row .mat-cell {
+  color: #666;
+  font-style: italic;
+}
+
+/* Context menu hint */
+.table-row::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.table-row:hover::after {
+  opacity: 1;
+}
+
+mat-paginator {
+  margin-top: 22px;
+}
+
+@media (max-width: 700px) {
+  .action-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 12px 8px 10px 8px;
+  }
+  .action-bar mat-form-field {
+    margin-right: 0;
+    min-width: 100px;
+    max-width: 100%;
+  }
+  .button-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .action-bar button {
+    min-width: 100px;
+  }
+} 

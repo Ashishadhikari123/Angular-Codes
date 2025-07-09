@@ -1,0 +1,18 @@
+            <mat-radio-button 
+              value="before" 
+              class="radio-option"
+              [disabled]="typeof data.selectedRowIndex !== 'number' || isNaN(data.selectedRowIndex)">
+              Before selected row
+              <span *ngIf="typeof data.selectedRowIndex === 'number' && !isNaN(data.selectedRowIndex)" class="row-info">
+                (Row {{ (data.selectedRowIndex + 1) }}: {{ getRowDisplayText() }})
+              </span>
+            </mat-radio-button>
+            <mat-radio-button 
+              value="after" 
+              class="radio-option"
+              [disabled]="typeof data.selectedRowIndex !== 'number' || isNaN(data.selectedRowIndex)">
+              After selected row
+              <span *ngIf="typeof data.selectedRowIndex === 'number' && !isNaN(data.selectedRowIndex)" class="row-info">
+                (Row {{ (data.selectedRowIndex + 1) }}: {{ getRowDisplayText() }})
+              </span>
+            </mat-radio-button> 

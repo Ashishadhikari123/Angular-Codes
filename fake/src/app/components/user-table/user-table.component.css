@@ -1,0 +1,185 @@
+.table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-width: 100%;
+  max-height: 800px; /* Show about 25 rows */
+  margin-bottom: 20px;
+}
+
+table {
+    min-width: 2000px; /* Minimum width to accommodate all columns */
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  
+  mat-paginator {
+    margin-top: 10px;
+  }
+  
+  .mat-mdc-row {
+    cursor: default;
+    transition: background-color 0.2s ease;
+  }
+  
+  .mat-mdc-row:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .mat-mdc-cell {
+    padding: 12px 8px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* Limit column width */
+  }
+  
+  .mat-mdc-header-cell {
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px; /* Limit column width */
+  }
+  
+  /* Inline editing styles */
+  .mat-mdc-cell.editing {
+    background-color: #e3f2fd;
+    border: 2px solid #1976d2;
+    border-radius: 4px;
+  }
+  
+  .cell-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cell-input:focus {
+    outline: none;
+  }
+
+  /* Dropdown styles for table cells */
+  .mat-mdc-cell .mat-mdc-select {
+    width: 100%;
+    min-width: 120px;
+  }
+
+  .mat-mdc-cell .mat-mdc-select .mat-mdc-select-trigger {
+    height: auto;
+    min-height: 24px;
+  }
+
+  .mat-mdc-cell .mat-mdc-select .mat-mdc-select-value {
+    font-size: inherit;
+    line-height: 1.2;
+  }
+
+  /* Make cells look clickable when not editing */
+  .mat-mdc-cell:not(.editing):not(:first-child) {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .mat-mdc-cell:not(.editing):not(:first-child):hover {
+    background-color: #f0f8ff;
+  }
+  
+  /* ID column should not be clickable */
+  .mat-mdc-cell:first-child {
+    cursor: default;
+  }
+  
+  .mat-mdc-cell:first-child:hover {
+    background-color: transparent;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .action-buttons button {
+    margin: 0 2px;
+  }
+  
+  .action-buttons button:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+  
+  mat-form-field {
+    margin-bottom: 20px;
+  }
+  
+  .container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  .sticky-col {
+    position: sticky;
+    background: #f5f5f5;
+    z-index: 2;
+  }
+  .sticky-col.employee-id {
+    left: 0;
+  }
+  .sticky-col.employee-code {
+    left: 120px; /* Adjust this value to match the width of EmployeeID column */
+  }
+  
+  th.sticky-col {
+    z-index: 3;
+    background: #e0e0e0;
+    color: #888;
+  }
+
+  /* Auto-generated Employee ID styling */
+  .auto-generated {
+    background-color: #f8f9fa !important;
+    color: #6c757d;
+    font-style: italic;
+    cursor: not-allowed !important;
+  }
+
+  .auto-generated:hover {
+    background-color: #f8f9fa !important;
+  }
+
+  .sticky-col-right {
+    position: sticky;
+    right: 0;
+    /* background: #f5f5f5; */
+    z-index: 3;
+    border-left: 2px solid #e0e0e0;
+  }
+
+  /* Remove special styling for EmployeeCode header, keep only for EmployeeID */
+  th.employee-id {
+    font-style: italic;
+    color: #888;
+    font-weight: 600;
+  }
+
+  /* th.employee-code {
+    font-style: normal;
+    color: inherit;
+    font-weight: 500;
+  }  */

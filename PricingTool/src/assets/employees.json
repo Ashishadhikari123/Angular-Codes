@@ -1,0 +1,114 @@
+{
+  "config": {
+    "item": {
+      "columns": [
+        "name",
+        "experience",
+        "salary",
+        "company",
+        "location",
+        "address"
+      ]
+    },
+    "columns": [
+      "name",
+      "experience",
+      "salary",
+      "company",
+      "location",
+      "address"
+    ]
+  },
+  "employees": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "experience": 5,
+      "salary": 70000,
+      "company": "TechCorp",
+      "location": "New York",
+      "address": "123 Main St"
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "experience": 3,
+      "salary": 60000,
+      "company": "InnovateX",
+      "location": "San Francisco",
+      "address": "456 Market St"
+    },
+    {
+      "id": 3,
+      "name": "Charlie",
+      "experience": 7,
+      "salary": 80000,
+      "company": "DevSolutions",
+      "location": "Chicago",
+      "address": "789 Lakeview Ave"
+    },
+    {
+      "id": 4,
+      "name": "Diana",
+      "experience": 2,
+      "salary": 55000,
+      "company": "WebWorks",
+      "location": "Austin",
+      "address": "321 Congress Ave"
+    },
+    {
+      "id": 5,
+      "name": "Ethan",
+      "experience": 4,
+      "salary": 65000,
+      "company": "Appify",
+      "location": "Seattle",
+      "address": "654 Pine St"
+    },
+    {
+      "id": 6,
+      "name": "Fiona",
+      "experience": 6,
+      "salary": 75000,
+      "company": "CloudNet",
+      "location": "Boston",
+      "address": "987 Beacon St"
+    },
+    {
+      "id": 7,
+      "name": "George",
+      "experience": 8,
+      "salary": 90000,
+      "company": "DataMinds",
+      "location": "Denver",
+      "address": "159 Broadway"
+    },
+    {
+      "id": 8,
+      "name": "Hannah",
+      "experience": 1,
+      "salary": 50000,
+      "company": "NextGen",
+      "location": "Miami",
+      "address": "753 Ocean Dr"
+    },
+    {
+      "id": 9,
+      "name": "Ian",
+      "experience": 9,
+      "salary": 95000,
+      "company": "SoftServe",
+      "location": "Dallas",
+      "address": "852 Elm St"
+    },
+    {
+      "id": 10,
+      "name": "Julia",
+      "experience": 10,
+      "salary": 100000,
+      "company": "PrimeTech",
+      "location": "Los Angeles",
+      "address": "951 Sunset Blvd"
+    }
+  ]
+}

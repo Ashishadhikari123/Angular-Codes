@@ -1,0 +1,42 @@
+<div class="dialog-container">
+  <div class="dialog-title">
+    Edit User
+  </div>
+  <form #editForm="ngForm" autocomplete="off">
+    <div class="form-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="user.name" name="name" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Experience (years)</mat-label>
+        <input matInput type="number" [(ngModel)]="user.experience" name="experience" min="0" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Salary</mat-label>
+        <input matInput type="number" [(ngModel)]="user.salary" name="salary" min="0" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Company</mat-label>
+        <input matInput [(ngModel)]="user.company" name="company" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Location</mat-label>
+        <input matInput [(ngModel)]="user.location" name="location" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput [(ngModel)]="user.address" name="address" required>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-stroked-button color="primary" (click)="cancel()">Cancel</button>
+      <button mat-raised-button color="primary" (click)="save()" [disabled]="!editForm.form.valid">Save</button>
+    </div>
+  </form>
+</div> 
